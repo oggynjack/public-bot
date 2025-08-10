@@ -124,6 +124,7 @@ model BotInstance {
   botToken        String   // AES encrypted
   applicationId   String
   botName         String   @default("Music Bot")
+  avatarUrl       String?
   botStatus       String   @default("online")
   botActivity     String?
   isActive        Boolean  @default(false)
