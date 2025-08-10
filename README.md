@@ -179,3 +179,6 @@ By contributing or using this project, you agree to follow our [Code of Conduct]
 - Author: [OggyTheDev](https://www.github.com/oggythdev/)
 - Email: nav-code2025@gmail.com
 - GitHub Issues: https://github.com/oggythdev/nav-discord-bot-music/issues
+=======
+# public-bot
+
