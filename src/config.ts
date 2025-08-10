@@ -1,0 +1,59 @@
+import { type ColorResolvable } from "discord.js";
+import { Language } from "./typings/utils";
+
+const config = {
+    defaultLanguage: Language.EnglishUS,
+    preconnect: true,
+    users: {
+        ownerId: "730818959112274040", // @OGGY as full owner
+        devIds: ["730818959112274040"], // @OGGY as full owner and developer
+    },
+    deleteErrorAfter: "5s",
+    emoji: {
+        done: "✅",
+        pause: "⏸️",
+        resume: "▶️",
+        stop: "⏹️",
+        skip: "⏭️",
+        previous: "⏮️",
+        forward: "⏩",
+        rewind: "⏪",
+        voldown: "🔉",
+        volup: "🔊",
+        shuffle: "🔀",
+        loop: {
+            none: "🔁",
+            track: "🔂",
+        },
+        page: {
+            last: "⏩",
+            first: "⏪",
+            back: "⬅️",
+            next: "➡️",
+            cancel: "⏹️",
+            shuffle: "🔀",
+        },
+    },
+    icons: {
+        youtube: "https://i.imgur.com/xzVHhFY.png",
+        spotify: "https://i.imgur.com/qvdqtsc.png",
+        soundcloud: "https://i.imgur.com/MVnJ7mj.png",
+        applemusic: "https://i.imgur.com/Wi0oyYm.png",
+        deezer: "https://i.imgur.com/xyZ43FG.png",
+        jiosaavn: "https://i.imgur.com/N9Nt80h.png",
+    } as { [key: string]: string },
+    color: {
+        red: "Red",
+        green: "Green",
+        blue: "Blue",
+        yellow: "Yellow",
+        main: "#9BECFA",
+    } as { [key: string]: ColorResolvable },
+    redis: {
+        url: process.env.REDIS_URL || 'redis://localhost:6379',
+        password: process.env.REDIS_PASSWORD,
+        database: parseInt(process.env.REDIS_DATABASE || '0'),
+    },
+};
+
+export default config;

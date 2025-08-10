@@ -1,0 +1,96 @@
+{
+    "commands": {
+        "desc": {
+            "admin": {
+                "language": "Bot-Sprache anzeigen/bearbeiten",
+                "data": "Benutzerdaten anzeigen",
+                "eval": "Javascript-Code ausführen",
+                "register": "Für Benutzer/Server registrieren",
+                "restart": "Bot neu starten"
+            },
+            "filters": {
+                "8d": "8D-Filter umschalten",
+                "bassboost": "Bass-Boost-Filter umschalten",
+                "karaoke": "Karaoke-Filter umschalten",
+                "lowpass": "Tiefpass-Filter umschalten",
+                "nightcore": "Nightcore-Filter umschalten",
+                "pitch": "Tonhöhen-Filter umschalten",
+                "reset": "Aktive Filter zurücksetzen",
+                "rotation": "Rotations-Filter umschalten",
+                "speed": "Song-Geschwindigkeit ändern",
+                "tremolo": "Tremolo-Filter umschalten",
+                "vibrato": "Vibrato-Filter umschalten"
+            },
+            "info": {
+                "help": "Hilfemenü anzeigen",
+                "ping": "Bot-Latenz anzeigen",
+                "premium": "Premium-Fortschritt anzeigen"
+            },
+            "music": {
+                "autoplay": "Autoplay-Modus umschalten",
+                "clearqueue": "Warteschlange leeren",
+                "join": "Sprachkanal beitreten",
+                "leave": "Sprachkanal verlassen",
+                "loop": "Aktuellen Song oder Warteschlange wiederholen",
+                "lyric": "Song-Text abrufen",
+                "nowplaying": "Aktuell spielenden Song anzeigen",
+                "pause": "Aktuellen Song pausieren",
+                "playnext": "Song als nächstes in Warteschlange hinzufügen",
+                "play": "Song von YouTube, Spotify, SoundCloud oder Link abspielen",
+                "queue": "Aktuelle Warteschlange anzeigen",
+                "remove": "Song aus Warteschlange entfernen",
+                "replay": "Aktuellen Song wiederholen",
+                "resume": "Aktuellen Song fortsetzen",
+                "search": "Nach einem Song suchen",
+                "seek": "Zu bestimmter Zeit im Song springen",
+                "shuffle": "Warteschlange mischen",
+                "skip": "Aktuellen Song oder zu bestimmtem Song springen",
+                "volume": "Player-Lautstärke einstellen"
+            },
+            "playlist": {
+                "add": "Song zur Playlist hinzufügen",
+                "create": "Neue Playlist erstellen",
+                "delete": "Playlist löschen",
+                "load": "Playlist laden",
+                "playlist": "Playlists anzeigen",
+                "removesong": "Song aus Playlist entfernen",
+                "steal": "Playlist von anderem Benutzer kopieren"
+            }
+        }
+    },
+    "music": {
+        "noPlayer": "🎵 Kein aktiver Player auf diesem Server",
+        "noQueue": "🎵 Keine Songs in der Warteschlange",
+        "noVoiceChannel": "🔊 Du musst in einem Sprachkanal sein",
+        "noPermissions": "❌ Ich habe keine Berechtigung, deinem Sprachkanal beizutreten",
+        "alreadyConnected": "🔊 Ich bin bereits mit einem Sprachkanal verbunden",
+        "notPlaying": "🎵 Derzeit wird keine Musik gespielt",
+        "queueEmpty": "🎵 Die Warteschlange ist leer",
+        "trackAdded": "🎵 **{track}** zur Warteschlange hinzugefügt",
+        "nowPlaying": "🎵 Spielt: **{track}**",
+        "paused": "⏸️ Musik pausiert",
+        "resumed": "▶️ Musik fortgesetzt",
+        "skipped": "⏭️ Song übersprungen",
+        "volumeSet": "🔊 Lautstärke auf **{volume}%** gesetzt",
+        "queueCleared": "🗑️ Warteschlange geleert",
+        "loopEnabled": "🔁 Wiederholung aktiviert",
+        "loopDisabled": "🔁 Wiederholung deaktiviert",
+        "shuffled": "🔀 Warteschlange gemischt",
+        "autoplayEnabled": "🎵 Autoplay aktiviert",
+        "autoplayDisabled": "🎵 Autoplay deaktiviert"
+    },
+    "premium": {
+        "required": "💎 Diese Funktion erfordert Premium",
+        "upgrade": "🚀 Upgrade auf Premium für vollen Zugang!",
+        "currentTier": "Aktuelle Stufe: **{tier}**",
+        "free": "Kostenlos",
+        "premium": "Premium",
+        "premiumplus": "Premium+"
+    },
+    "errors": {
+        "generic": "❌ Ein Fehler ist aufgetreten",
+        "noPermission": "❌ Du hast keine Berechtigung, diesen Befehl zu verwenden",
+        "cooldown": "⏰ Warte {time} Sekunden, bevor du diesen Befehl erneut verwendest",
+        "missingArgs": "❌ Fehlende Argumente"
+    }
+}

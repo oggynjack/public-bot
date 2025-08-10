@@ -1,0 +1,27 @@
+{
+  "apps": [
+    {
+      "name": "lavalink-server",
+      "script": "java",
+      "args": ["-Xmx1G", "-Djava.awt.headless=true", "-jar", "Lavalink.jar"],
+      "cwd": "C:/Lavalink",
+      "instances": 1,
+      "autorestart": true,
+      "watch": false,
+      "max_memory_restart": "1G",
+      "min_uptime": "10s",
+      "max_restarts": 5,
+      "restart_delay": 4000,
+      "env": {
+        "NODE_ENV": "production",
+        "JAVA_OPTS": "-Djava.awt.headless=true"
+      },
+      "out_file": "C:/Lavalink/logs/lavalink-out.log",
+      "error_file": "C:/Lavalink/logs/lavalink-error.log",
+      "log_file": "C:/Lavalink/logs/lavalink-combined.log",
+      "time": true,
+      "merge_logs": true,
+      "log_date_format": "YYYY-MM-DD HH:mm:ss Z"
+    }
+  ]
+}

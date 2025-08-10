@@ -1,0 +1,184 @@
+<%- include('./layouts/header', { title: title }) %>
+
+<div class="min-h-screen bg-gray-900">
+  <!-- Navigation -->
+  <nav class="bg-gray-800 shadow-lg border-b border-gray-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex items-center space-x-3">
+          <i class="fas fa-music text-discord-500 text-2xl"></i>
+          <span class="text-xl font-bold">MAVCODE Rhythm</span>
+          <span class="px-2 py-1 bg-premium-500 text-black text-xs font-semibold rounded">MUSIC BOT</span>
+        </div>
+        
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="/" class="text-gray-300 hover:text-white transition-colors">
+            <i class="fas fa-home mr-2"></i>Home
+          </a>
+          <a href="/dashboard/plans" class="text-gray-300 hover:text-white transition-colors">
+            <i class="fas fa-tag mr-2"></i>Plans
+          </a>
+          <a href="/dashboard/documentation" class="text-gray-300 hover:text-white transition-colors">
+            <i class="fas fa-book mr-2"></i>Documentation
+          </a>
+          <a href="/features" class="text-gray-300 hover:text-white transition-colors">
+            <i class="fas fa-star mr-2"></i>Features
+          </a>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+          <a href="/auth/discord" class="bg-discord-500 hover:bg-discord-600 text-white px-6 py-2 rounded-lg flex items-center space-x-2 transition-colors">
+            <i class="fab fa-discord"></i>
+            <span>Login with Discord</span>
+          </a>
+          <a href="/admin/login" class="bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-2 rounded-lg font-bold border-2 border-yellow-600 flex items-center space-x-2 transition-colors">
+            <i class="fas fa-user-shield"></i>
+            <span>Admin Login</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-gray-800 to-gray-900 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Need <span class="text-discord-400">Help?</span>
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        Our support team is here to help you get the most out of MAVCODE Rhythm
+      </p>
+    </div>
+  </section>
+
+  <!-- Support Options -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Discord Support -->
+        <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 text-center">
+          <div class="w-16 h-16 bg-discord-500 rounded-xl flex items-center justify-center mx-auto mb-6">
+            <i class="fab fa-discord text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4">Discord Support</h3>
+          <p class="text-gray-300 mb-6">Join our Discord server for real-time support and community help.</p>
+          <div class="text-sm text-gray-400 mb-6">
+            <p><i class="fas fa-clock mr-2"></i>Available 24/7</p>
+            <p><i class="fas fa-users mr-2"></i>Community & Staff Support</p>
+          </div>
+          <a href="https://discord.gg/mavcode" class="bg-discord-500 hover:bg-discord-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center space-x-2">
+            <i class="fab fa-discord"></i>
+            <span>Join Discord</span>
+          </a>
+        </div>
+
+        <!-- Email Support -->
+        <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 text-center">
+          <div class="w-16 h-16 bg-blue-500 rounded-xl flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-envelope text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4">Email Support</h3>
+          <p class="text-gray-300 mb-6">Send us an email for detailed technical support and billing inquiries.</p>
+          <div class="text-sm text-gray-400 mb-6">
+            <p><i class="fas fa-clock mr-2"></i>Response within 24h</p>
+            <p><i class="fas fa-shield-alt mr-2"></i>Technical & Billing</p>
+          </div>
+          <a href="mailto:support@mavcode.xyz" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center space-x-2">
+            <i class="fas fa-envelope"></i>
+            <span>Send Email</span>
+          </a>
+        </div>
+
+        <!-- Live Chat -->
+        <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 text-center">
+          <div class="w-16 h-16 bg-green-500 rounded-xl flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-comments text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4">Live Chat</h3>
+          <p class="text-gray-300 mb-6">Chat directly with our support team for immediate assistance.</p>
+          <div class="text-sm text-gray-400 mb-6">
+            <p><i class="fas fa-clock mr-2"></i>Mon-Fri 9AM-6PM EST</p>
+            <p><i class="fas fa-lightning-bolt mr-2"></i>Instant Response</p>
+          </div>
+          <button onclick="startLiveChat()" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center space-x-2">
+            <i class="fas fa-comments"></i>
+            <span>Start Chat</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="bg-gray-800 py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-white text-center mb-12">Frequently Asked Questions</h2>
+      
+      <div class="space-y-6">
+        <!-- FAQ Item 1 -->
+        <div class="bg-gray-700 rounded-xl p-6 border border-gray-600">
+          <button onclick="toggleFAQ(1)" class="w-full text-left flex justify-between items-center">
+            <h3 class="text-xl font-semibold text-white">How do I get started with my music bot?</h3>
+            <i class="fas fa-chevron-down text-gray-400 transform transition-transform" id="faq-icon-1"></i>
+          </button>
+          <div id="faq-content-1" class="hidden mt-4 text-gray-300">
+            <p>Getting started is easy! Simply log in to the admin panel, provide your Discord bot token and application ID, and your bot will be hosted automatically. You can then customize settings through the web dashboard.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="bg-gray-700 rounded-xl p-6 border border-gray-600">
+          <button onclick="toggleFAQ(2)" class="w-full text-left flex justify-between items-center">
+            <h3 class="text-xl font-semibold text-white">What music sources are supported?</h3>
+            <i class="fas fa-chevron-down text-gray-400 transform transition-transform" id="faq-icon-2"></i>
+          </button>
+          <div id="faq-content-2" class="hidden mt-4 text-gray-300">
+            <p>MAVCODE Rhythm supports YouTube, YouTube Music, Spotify playlists, SoundCloud, and direct file uploads. We're constantly adding more sources based on user feedback.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="bg-gray-700 rounded-xl p-6 border border-gray-600">
+          <button onclick="toggleFAQ(3)" class="w-full text-left flex justify-between items-center">
+            <h3 class="text-xl font-semibold text-white">Is there a free trial available?</h3>
+            <i class="fas fa-chevron-down text-gray-400 transform transition-transform" id="faq-icon-3"></i>
+          </button>
+          <div id="faq-content-3" class="hidden mt-4 text-gray-300">
+            <p>Yes! We offer a 7-day free trial for new users. No credit card required. You can test all features before deciding on a subscription plan.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="bg-gray-700 rounded-xl p-6 border border-gray-600">
+          <button onclick="toggleFAQ(4)" class="w-full text-left flex justify-between items-center">
+            <h3 class="text-xl font-semibold text-white">Can I customize my bot's appearance?</h3>
+            <i class="fas fa-chevron-down text-gray-400 transform transition-transform" id="faq-icon-4"></i>
+          </button>
+          <div id="faq-content-4" class="hidden mt-4 text-gray-300">
+            <p>Absolutely! You can customize your bot's username, avatar, status, activity, and even create custom commands. Everything is managed through our intuitive web dashboard.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+function toggleFAQ(id) {
+  const content = document.getElementById(`faq-content-${id}`);
+  const icon = document.getElementById(`faq-icon-${id}`);
+  
+  content.classList.toggle('hidden');
+  icon.classList.toggle('rotate-180');
+}
+
+function startLiveChat() {
+  alert('Live chat feature will be available soon! For now, please use Discord or email support.');
+}
+</script>
+
+<%- include('./layouts/footer') %>

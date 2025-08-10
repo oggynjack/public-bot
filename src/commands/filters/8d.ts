@@ -1,0 +1,54 @@
+import prefix from "@/layouts/prefix";
+import { EmbedBuilder } from "discord.js";
+import { Category } from "@/typings/utils";
+import { T } from "@/handlers/i18n";
+
+export default prefix(
+    "8d",
+    {
+        description: {
+            content: "desc.8d",
+            examples: ["8d"],
+            usage: "8d",
+        },
+        aliases: ["3d"],
+        cooldown: "5s",
+        voiceOnly: true,
+        sameRoom: true,
+        botPermissions: [
+            "SendMessages",
+            "ReadMessageHistory",
+            "ViewChannel",
+            "EmbedLinks",
+        ],
+        ignore: false,
+        category: Category.filters,
+    },
+    async (client, guild, user, message, args) => {
+        const player = client.manager.getPlayer(message.guildId);
+        const embed = new EmbedBuilder();
+        // Normalize current state to a boolean and toggle correctly:
+        // - When currently enabled (truthy rotation), disable and show 8d_off
+        // - When currently disabled (falsy/undefined), enable with intensity 0.2 and show 8d_on
+        const filterEnabled = Boolean(player?.filterManager.filters.rotation);
+        if (filterEnabled) {
+            await player?.filterManager.toggleRotation(0); // ensure disabled
+            await message.channel.send({
+                embeds: [
+                    embed
+                        .setDescription(T(guild.language, "success.filters.8d_off"))
+                        .setColor(client.color.main),
+                ],
+            });
+        } else {
+            await player?.filterManager.toggleRotation(0.2); // enable with default intensity
+            await message.channel.send({
+                embeds: [
+                    embed
+                        .setDescription(T(guild.language, "success.filters.8d_on"))
+                        .setColor(client.color.main),
+                ],
+            });
+        }
+    },
+);

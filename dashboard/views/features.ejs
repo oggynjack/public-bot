@@ -1,0 +1,166 @@
+<%- include('./layouts/header', { title: title }) %>
+
+<div class="min-h-screen bg-gray-900">
+  <!-- Navigation -->
+  <nav class="bg-gray-800 shadow-lg border-b border-gray-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex items-center space-x-3">
+          <i class="fas fa-music text-discord-500 text-2xl"></i>
+          <span class="text-xl font-bold">MAVCODE Rhythm</span>
+          <span class="px-2 py-1 bg-premium-500 text-black text-xs font-semibold rounded">MUSIC BOT</span>
+        </div>
+        
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="/" class="text-gray-300 hover:text-white transition-colors">
+            <i class="fas fa-home mr-2"></i>Home
+          </a>
+          <a href="/dashboard/plans" class="text-gray-300 hover:text-white transition-colors">
+            <i class="fas fa-tag mr-2"></i>Plans
+          </a>
+          <a href="/dashboard/documentation" class="text-gray-300 hover:text-white transition-colors">
+            <i class="fas fa-book mr-2"></i>Documentation
+          </a>
+          <a href="/features" class="text-white font-semibold">
+            <i class="fas fa-star mr-2"></i>Features
+          </a>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+          <a href="/auth/discord" class="bg-discord-500 hover:bg-discord-600 text-white px-6 py-2 rounded-lg flex items-center space-x-2 transition-colors">
+            <i class="fab fa-discord"></i>
+            <span>Login with Discord</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-gray-800 to-gray-900 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Powerful <span class="text-discord-400">Music Bot</span> Features
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        Everything you need to create the perfect music experience for your Discord server
+      </p>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- High Quality Audio -->
+        <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-discord-500 transition-colors">
+          <div class="w-16 h-16 bg-discord-500 rounded-xl flex items-center justify-center mb-6">
+            <i class="fas fa-music text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4">High Quality Audio</h3>
+          <p class="text-gray-300 mb-6">Crystal clear 320kbps audio streaming with minimal latency and buffer-free playback.</p>
+          <ul class="space-y-2 text-gray-400">
+            <li><i class="fas fa-check text-green-500 mr-2"></i>320kbps streaming</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i>Low latency playback</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i>Buffer-free experience</li>
+          </ul>
+        </div>
+
+        <!-- Multiple Sources -->
+        <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-premium-500 transition-colors">
+          <div class="w-16 h-16 bg-premium-500 rounded-xl flex items-center justify-center mb-6">
+            <i class="fas fa-globe text-black text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4">Multiple Sources</h3>
+          <p class="text-gray-300 mb-6">Play music from all major platforms with seamless integration and search.</p>
+          <ul class="space-y-2 text-gray-400">
+            <li><i class="fas fa-check text-green-500 mr-2"></i>YouTube & YouTube Music</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i>Spotify playlists</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i>SoundCloud support</li>
+          </ul>
+        </div>
+
+        <!-- 24/7 Uptime -->
+        <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-green-500 transition-colors">
+          <div class="w-16 h-16 bg-green-500 rounded-xl flex items-center justify-center mb-6">
+            <i class="fas fa-clock text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4">24/7 Hosting</h3>
+          <p class="text-gray-300 mb-6">Your bot stays online around the clock with 99.9% uptime guarantee.</p>
+          <ul class="space-y-2 text-gray-400">
+            <li><i class="fas fa-check text-green-500 mr-2"></i>99.9% uptime SLA</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i>Auto-restart protection</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i>Global server network</li>
+          </ul>
+        </div>
+
+        <!-- Advanced Queue -->
+        <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-purple-500 transition-colors">
+          <div class="w-16 h-16 bg-purple-500 rounded-xl flex items-center justify-center mb-6">
+            <i class="fas fa-list text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4">Advanced Queue</h3>
+          <p class="text-gray-300 mb-6">Powerful queue management with shuffle, repeat, and autoplay features.</p>
+          <ul class="space-y-2 text-gray-400">
+            <li><i class="fas fa-check text-green-500 mr-2"></i>Unlimited queue size</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i>Smart shuffle & repeat</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i>Auto-play similar songs</li>
+          </ul>
+        </div>
+
+        <!-- Audio Effects -->
+        <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-pink-500 transition-colors">
+          <div class="w-16 h-16 bg-pink-500 rounded-xl flex items-center justify-center mb-6">
+            <i class="fas fa-sliders-h text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4">Audio Effects</h3>
+          <p class="text-gray-300 mb-6">Professional audio effects and filters to enhance your music experience.</p>
+          <ul class="space-y-2 text-gray-400">
+            <li><i class="fas fa-check text-green-500 mr-2"></i>Bass boost & treble</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i>8D & nightcore effects</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i>Custom EQ presets</li>
+          </ul>
+        </div>
+
+        <!-- Web Dashboard -->
+        <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-blue-500 transition-colors">
+          <div class="w-16 h-16 bg-blue-500 rounded-xl flex items-center justify-center mb-6">
+            <i class="fas fa-desktop text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4">Web Dashboard</h3>
+          <p class="text-gray-300 mb-6">Intuitive web interface to control your bot remotely from anywhere.</p>
+          <ul class="space-y-2 text-gray-400">
+            <li><i class="fas fa-check text-green-500 mr-2"></i>Remote bot control</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i>Real-time monitoring</li>
+            <li><i class="fas fa-check text-green-500 mr-2"></i>Mobile responsive</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-gray-800 py-16">
+    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-white mb-6">Ready to Get Started?</h2>
+      <p class="text-xl text-gray-300 mb-8">
+        Join thousands of Discord servers already using MAVCODE Rhythm
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/auth/discord" class="bg-discord-500 hover:bg-discord-600 text-white px-8 py-4 rounded-lg text-lg font-semibold flex items-center justify-center space-x-2 transition-colors">
+          <i class="fab fa-discord"></i>
+          <span>Login with Discord</span>
+        </a>
+        <a href="/dashboard/plans" class="border border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white px-8 py-4 rounded-lg text-lg font-semibold flex items-center justify-center space-x-2 transition-colors">
+          <i class="fas fa-tag"></i>
+          <span>View Pricing</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<%- include('./layouts/footer') %>

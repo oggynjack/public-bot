@@ -1,0 +1,96 @@
+{
+    "commands": {
+        "desc": {
+            "admin": {
+                "language": "Voir/modifier la langue du bot",
+                "data": "Voir les données utilisateur",
+                "eval": "Exécuter du code javascript",
+                "register": "S'inscrire pour utilisateur/serveur",
+                "restart": "Redémarrer le bot"
+            },
+            "filters": {
+                "8d": "Activer/désactiver le filtre 8D",
+                "bassboost": "Activer/désactiver le filtre bass boost",
+                "karaoke": "Activer/désactiver le filtre karaoké",
+                "lowpass": "Activer/désactiver le filtre passe-bas",
+                "nightcore": "Activer/désactiver le filtre nightcore",
+                "pitch": "Activer/désactiver le filtre de hauteur",
+                "reset": "Réinitialiser les filtres actifs",
+                "rotation": "Activer/désactiver le filtre de rotation",
+                "speed": "Changer la vitesse de la chanson",
+                "tremolo": "Activer/désactiver le filtre tremolo",
+                "vibrato": "Activer/désactiver le filtre vibrato"
+            },
+            "info": {
+                "help": "Afficher le menu d'aide",
+                "ping": "Afficher la latence du bot",
+                "premium": "Afficher le progrès premium"
+            },
+            "music": {
+                "autoplay": "Activer/désactiver le mode lecture automatique",
+                "clearqueue": "Vider la file d'attente",
+                "join": "Rejoindre le canal vocal",
+                "leave": "Quitter le canal vocal",
+                "loop": "Répéter la chanson actuelle ou la file",
+                "lyric": "Obtenir les paroles de la chanson",
+                "nowplaying": "Afficher la chanson en cours",
+                "pause": "Mettre en pause la chanson actuelle",
+                "playnext": "Ajouter une chanson à jouer ensuite",
+                "play": "Jouer une chanson depuis YouTube, Spotify, SoundCloud ou lien",
+                "queue": "Afficher la file d'attente actuelle",
+                "remove": "Supprimer une chanson de la file",
+                "replay": "Rejouer la chanson actuelle",
+                "resume": "Reprendre la chanson actuelle",
+                "search": "Rechercher une chanson",
+                "seek": "Aller à un moment précis dans la chanson",
+                "shuffle": "Mélanger la file d'attente",
+                "skip": "Passer la chanson actuelle ou à une chanson spécifique",
+                "volume": "Définir le volume du lecteur"
+            },
+            "playlist": {
+                "add": "Ajouter une chanson à la playlist",
+                "create": "Créer une nouvelle playlist",
+                "delete": "Supprimer la playlist",
+                "load": "Charger la playlist",
+                "playlist": "Afficher les playlists",
+                "removesong": "Supprimer une chanson de la playlist",
+                "steal": "Copier la playlist d'un autre utilisateur"
+            }
+        }
+    },
+    "music": {
+        "noPlayer": "🎵 Aucun lecteur actif sur ce serveur",
+        "noQueue": "🎵 Aucune chanson dans la file d'attente",
+        "noVoiceChannel": "🔊 Vous devez être dans un canal vocal",
+        "noPermissions": "❌ Je n'ai pas les permissions pour rejoindre votre canal vocal",
+        "alreadyConnected": "🔊 Je suis déjà connecté à un canal vocal",
+        "notPlaying": "🎵 Aucune musique n'est actuellement en cours de lecture",
+        "queueEmpty": "🎵 La file d'attente est vide",
+        "trackAdded": "🎵 **{track}** ajoutée à la file d'attente",
+        "nowPlaying": "🎵 En cours de lecture : **{track}**",
+        "paused": "⏸️ Musique en pause",
+        "resumed": "▶️ Musique reprise",
+        "skipped": "⏭️ Chanson passée",
+        "volumeSet": "🔊 Volume défini à **{volume}%**",
+        "queueCleared": "🗑️ File d'attente vidée",
+        "loopEnabled": "🔁 Répétition activée",
+        "loopDisabled": "🔁 Répétition désactivée",
+        "shuffled": "🔀 File d'attente mélangée",
+        "autoplayEnabled": "🎵 Lecture automatique activée",
+        "autoplayDisabled": "🎵 Lecture automatique désactivée"
+    },
+    "premium": {
+        "required": "💎 Cette fonctionnalité nécessite Premium",
+        "upgrade": "🚀 Passez à Premium pour un accès complet !",
+        "currentTier": "Niveau actuel : **{tier}**",
+        "free": "Gratuit",
+        "premium": "Premium",
+        "premiumplus": "Premium+"
+    },
+    "errors": {
+        "generic": "❌ Une erreur s'est produite",
+        "noPermission": "❌ Vous n'avez pas la permission d'utiliser cette commande",
+        "cooldown": "⏰ Attendez {time} secondes avant d'utiliser cette commande à nouveau",
+        "missingArgs": "❌ Arguments manquants"
+    }
+}

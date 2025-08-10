@@ -1,0 +1,17 @@
+enum PremiumPlan {
+  Free
+  Premium
+  PremiumPlus
+  TrialPremium
+}
+
+enum BotPermission {
+  RESTART
+  STOP
+  START
+  CHANGE_NAME
+  CHANGE_AVATAR
+  CHANGE_STATUS
+  CHANGE_ACTIVITY
+  MASTER_CONTROL
+}

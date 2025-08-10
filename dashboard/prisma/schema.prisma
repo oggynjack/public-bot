@@ -1,0 +1,201 @@
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../generated"
+  previewFeatures = ["postgresqlExtensions", "relationJoins"]
+  binaryTargets   = ["native", "linux-musl-openssl-3.0.x"]
+  engineType      = "library"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PremiumPlan {
+  Free
+  Premium
+  PremiumPlus
+  TrialPremium
+}
+
+enum BotPermission {
+  RESTART
+  STOP
+  START
+  CHANGE_NAME
+  CHANGE_AVATAR
+  CHANGE_STATUS
+  CHANGE_ACTIVITY
+  MASTER_CONTROL
+}
+
+model Playlist {
+  playlist_id String  @id @default(cuid())
+  userId      String
+  name        String
+  private     Boolean @default(false)
+  user        User    @relation(fields: [userId], references: [userId], onDelete: Cascade)
+  tracks      Track[]
+
+  @@unique([userId, name])
+}
+
+model Track {
+  track_id    String   @id @default(cuid())
+  uri         String
+  name        String
+  encode      String
+  duration    Int
+  playlist_id String
+  playlist    Playlist @relation(fields: [playlist_id], references: [playlist_id], onDelete: Cascade)
+}
+
+model Bot {
+  botId   String  @id
+  voiceId String? @unique
+}
+
+model Guild {
+  guildId          String            @id
+  premiumFrom      DateTime?
+  premiumTo        DateTime?
+  premiumPlan      PremiumPlan       @default(Free)
+  language         String            @default("EnglishUS")
+  customBotName    String?
+  embedColor       String?
+  defaultVolume    Int?              @default(100)
+  enable247        Boolean           @default(false)
+  enableAutoplay   Boolean           @default(false)
+  enableVoteSkip   Boolean           @default(true)
+  isActive         Boolean           @default(true)
+  lastActivity     DateTime          @default(now())
+  totalCommands    Int               @default(0)
+  premiumSlots     Int               @default(1)
+  guildBotSettings GuildBotSettings?
+}
+
+model User {
+  userId           String        @id
+  username         String?
+  discriminator    String?       @default("0")
+  avatar           String?
+  email            String?
+  premiumFrom      DateTime?
+  premiumTo        DateTime?
+  premiumPlan      PremiumPlan   @default(Free)
+  premiumPlus      Boolean       @default(false)
+  stripeCustomerId String?
+  stripeSubscriptionId String?
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+  playlists        Playlist[]
+  botInstance      BotInstance?
+  payments         Payment[]
+  guildOwner       GuildOwner?
+}
+
+model PremiumFeature {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  price       Float?
+  duration    Int?
+  features    String[]
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model GuildBotSettings {
+  id         String   @id @default(cuid())
+  guildId    String   @unique
+  botName    String?
+  botAvatar  String?
+  embedColor String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  guild      Guild    @relation(fields: [guildId], references: [guildId], onDelete: Cascade)
+}
+
+// Dashboard-specific models
+model BotInstance {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  botToken        String   // AES encrypted
+  applicationId   String
+  botName         String   @default("Music Bot")
+  botStatus       String   @default("online")
+  botActivity     String?
+  isActive        Boolean  @default(false)
+  pm2ProcessId    String?
+  defaultVolume   Int      @default(50)
+  enable247       Boolean  @default(false)
+  enableAutoplay  Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  user            User     @relation(fields: [userId], references: [userId], onDelete: Cascade)
+}
+
+model Payment {
+  id                String   @id @default(cuid())
+  userId            String
+  planId            String?
+  stripeSessionId   String?
+  transactionId     String?
+  amount            Float
+  currency          String   @default("USD")
+  paymentMethod     String
+  status            String   @default("pending") // pending, completed, failed, refunded
+  duration          Int      @default(30) // days
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  user              User     @relation(fields: [userId], references: [userId], onDelete: Cascade)
+  plan              Plan?    @relation(fields: [planId], references: [id], onDelete: SetNull)
+}
+
+model Plan {
+  id           String    @id @default(cuid())
+  name         String
+  description  String?
+  price        Float
+  currency     String    @default("USD")
+  durationDays Int       @default(30)
+  features     String[]
+  isActive     Boolean   @default(true)
+  stripePriceId String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  payments     Payment[]
+}
+
+model GuildOwner {
+  userId  String @id
+  guildId String @unique
+  user    User   @relation(fields: [userId], references: [userId], onDelete: Cascade)
+}
+
+// Admin management model
+model Admin {
+  id          String   @id @default(cuid())
+  email       String   @unique
+  passwordHash String
+  isRegistered Boolean @default(false)
+  isMaster    Boolean @default(false)
+  permissions String[] @default([])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  lastLogin   DateTime?
+}
+
+// OTP verification model
+model OtpVerification {
+  id        String   @id @default(cuid())
+  email     String
+  otp       String
+  type      String   // 'registration', 'password_reset'
+  expiresAt DateTime
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  
+  @@index([email, type])
+}

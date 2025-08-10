@@ -1,0 +1,96 @@
+{
+    "commands": {
+        "desc": {
+            "admin": {
+                "language": "Ver/editar idioma del bot",
+                "data": "Ver datos del usuario",
+                "eval": "Ejecutar código javascript",
+                "register": "Registrar para usuario/servidor",
+                "restart": "Reiniciar bot"
+            },
+            "filters": {
+                "8d": "Activar/desactivar filtro 8D",
+                "bassboost": "Activar/desactivar filtro de graves",
+                "karaoke": "Activar/desactivar filtro karaoke",
+                "lowpass": "Activar/desactivar filtro pasa-bajos",
+                "nightcore": "Activar/desactivar filtro nightcore",
+                "pitch": "Activar/desactivar filtro de tono",
+                "reset": "Restablecer filtros activos",
+                "rotation": "Activar/desactivar filtro de rotación",
+                "speed": "Cambiar velocidad de canción",
+                "tremolo": "Activar/desactivar filtro tremolo",
+                "vibrato": "Activar/desactivar filtro vibrato"
+            },
+            "info": {
+                "help": "Mostrar menú de ayuda",
+                "ping": "Mostrar latencia del bot",
+                "premium": "Mostrar progreso premium"
+            },
+            "music": {
+                "autoplay": "Activar/desactivar modo automático",
+                "clearqueue": "Limpiar cola",
+                "join": "Unirse al canal de voz",
+                "leave": "Salir del canal de voz",
+                "loop": "Repetir canción actual o cola",
+                "lyric": "Obtener letras de canción",
+                "nowplaying": "Mostrar canción reproduciéndose",
+                "pause": "Pausar canción actual",
+                "playnext": "Agregar canción para reproducir siguiente",
+                "play": "Reproducir canción de YouTube, Spotify, SoundCloud o enlace",
+                "queue": "Mostrar cola actual",
+                "remove": "Eliminar canción de la cola",
+                "replay": "Repetir canción actual",
+                "resume": "Reanudar canción actual",
+                "search": "Buscar una canción",
+                "seek": "Buscar tiempo específico en canción",
+                "shuffle": "Mezclar cola",
+                "skip": "Saltar canción actual o a canción específica",
+                "volume": "Establecer volumen del reproductor"
+            },
+            "playlist": {
+                "add": "Agregar canción a playlist",
+                "create": "Crear nueva playlist",
+                "delete": "Eliminar playlist",
+                "load": "Cargar playlist",
+                "playlist": "Mostrar playlists",
+                "removesong": "Eliminar canción de playlist",
+                "steal": "Copiar playlist de otro usuario"
+            }
+        }
+    },
+    "music": {
+        "noPlayer": "🎵 No hay reproductor activo en este servidor",
+        "noQueue": "🎵 No hay canciones en la cola",
+        "noVoiceChannel": "🔊 Debes estar en un canal de voz",
+        "noPermissions": "❌ No tengo permisos para unirme a tu canal de voz",
+        "alreadyConnected": "🔊 Ya estoy conectado a un canal de voz",
+        "notPlaying": "🎵 No se está reproduciendo música actualmente",
+        "queueEmpty": "🎵 La cola está vacía",
+        "trackAdded": "🎵 **{track}** agregada a la cola",
+        "nowPlaying": "🎵 Reproduciendo: **{track}**",
+        "paused": "⏸️ Música pausada",
+        "resumed": "▶️ Música reanudada",
+        "skipped": "⏭️ Canción saltada",
+        "volumeSet": "🔊 Volumen establecido a **{volume}%**",
+        "queueCleared": "🗑️ Cola limpiada",
+        "loopEnabled": "🔁 Repetición habilitada",
+        "loopDisabled": "🔁 Repetición deshabilitada",
+        "shuffled": "🔀 Cola mezclada",
+        "autoplayEnabled": "🎵 Reproducción automática habilitada",
+        "autoplayDisabled": "🎵 Reproducción automática deshabilitada"
+    },
+    "premium": {
+        "required": "💎 Esta función requiere Premium",
+        "upgrade": "🚀 ¡Mejora a Premium para acceso completo!",
+        "currentTier": "Nivel actual: **{tier}**",
+        "free": "Gratuito",
+        "premium": "Premium",
+        "premiumplus": "Premium+"
+    },
+    "errors": {
+        "generic": "❌ Ha ocurrido un error",
+        "noPermission": "❌ No tienes permisos para usar este comando",
+        "cooldown": "⏰ Espera {time} segundos antes de usar este comando nuevamente",
+        "missingArgs": "❌ Argumentos faltantes"
+    }
+}

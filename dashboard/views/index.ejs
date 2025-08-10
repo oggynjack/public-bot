@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PremiumPlus Music Bot</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+  <!-- Tailwind Config BEFORE Tailwind -->
+  <script>
+    tailwind = {
+      theme: {
+        extend: {
+          colors: {
+            discord: {
+              50: '#f0f4ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc', 400: '#818cf8',
+              500: '#5865f2', 600: '#4f46e5', 700: '#4338ca', 800: '#3730a3', 900: '#312e81'
+            },
+            premium: {
+              50: '#fefce8', 100: '#fef9c3', 200: '#fef08a', 300: '#fde047', 400: '#facc15',
+              500: '#eab308', 600: '#ca8a04', 700: '#a16207', 800: '#854d0e', 900: '#713f12'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <style>
+    /* Animated Gradient Background */
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    body {
+      background: linear-gradient(45deg,
+        #1e3a8a,
+        #2563eb,
+        #3b82f6,
+        #60a5fa,
+        #2563eb,
+        #1e3a8a
+      );
+      background-size: 1200% 1200%;
+      animation: gradientShift 25s ease infinite;
+      color: #e5e7eb; /* Tailwind's gray-200 for text */
+      position: relative;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    /* Overlay for better readability */
+    #overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      pointer-events: none;
+      z-index: 0;
+    }
+    /* Make sure main content is above overlay */
+    #main-content {
+      position: relative;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Overlay -->
+  <div id="overlay"></div>
+
+  <!-- Main Content -->
+  <div id="main-content">
+
+    <!-- Navigation -->
+    <nav class="bg-gray-800/70 backdrop-blur-sm shadow-lg border-b border-gray-700">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16 items-center">
+          <div class="flex items-center space-x-3">
+            <i class="fas fa-music text-discord-500 text-2xl"></i>
+            <span class="text-xl font-bold">MAVCODE Rhythm</span>
+            <span class="px-2 py-1 bg-premium-500 text-black text-xs font-semibold rounded">MUSIC BOT</span>
+          </div>
+          
+          <!-- Navigation Links -->
+          <div class="hidden md:flex items-center space-x-6">
+            <a href="/" class="text-gray-300 hover:text-white transition-colors">
+              <i class="fas fa-home mr-2"></i>Home
+            </a>
+            <a href="/dashboard/plans" class="text-gray-300 hover:text-white transition-colors">
+              <i class="fas fa-tag mr-2"></i>Plans
+            </a>
+            <a href="/dashboard/documentation" class="text-gray-300 hover:text-white transition-colors">
+              <i class="fas fa-book mr-2"></i>Documentation
+            </a>
+            <a href="/features" class="text-gray-300 hover:text-white transition-colors">
+              <i class="fas fa-star mr-2"></i>Features
+            </a>
+          </div>
+          
+          <div class="flex items-center space-x-4">
+            <a href="/auth/discord" class="bg-discord-500 hover:bg-discord-600 text-white px-6 py-2 rounded-lg flex items-center space-x-2 transition-colors">
+              <i class="fab fa-discord"></i>
+              <span>Login with Discord</span>
+            </a>
+          </div>
+          
+          <!-- Mobile menu button -->
+          <div class="md:hidden">
+            <button onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="md:hidden hidden pb-4">
+          <a href="/" class="block text-gray-300 hover:text-white py-2 transition-colors">
+            <i class="fas fa-home mr-2"></i>Home
+          </a>
+          <a href="/dashboard/plans" class="block text-gray-300 hover:text-white py-2 transition-colors">
+            <i class="fas fa-tag mr-2"></i>Plans
+          </a>
+          <a href="/dashboard/documentation" class="block text-gray-300 hover:text-white py-2 transition-colors">
+            <i class="fas fa-book mr-2"></i>Documentation
+          </a>
+          <a href="/features" class="block text-gray-300 hover:text-white py-2 transition-colors">
+            <i class="fas fa-star mr-2"></i>Features
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="flex-1 flex items-center justify-center min-h-[80vh] text-center px-6 relative">
+      <div class="max-w-4xl z-10">
+        <!-- Error Messages -->
+        <% if (typeof error !== 'undefined' && error === 'no_premium') { %>
+          <div class="bg-red-600 border border-red-500 rounded-lg p-4 mb-8 max-w-2xl mx-auto">
+            <div class="flex items-center space-x-3">
+              <i class="fas fa-exclamation-triangle text-yellow-300 text-xl"></i>
+              <div class="text-left">
+                <h3 class="font-semibold text-white">Premium+ Required</h3>
+                <p class="text-red-100 mt-1">You need a Premium+ plan to access the dashboard. Subscribe below to get started with your own music bot!</p>
+              </div>
+            </div>
+          </div>
+        <% } %>
+        
+        <% if (typeof error !== 'undefined' && error === 'auth_failed') { %>
+          <div class="bg-red-600 border border-red-500 rounded-lg p-4 mb-8 max-w-2xl mx-auto">
+            <div class="flex items-center space-x-3">
+              <i class="fas fa-times-circle text-white text-xl"></i>
+              <div class="text-left">
+                <h3 class="font-semibold text-white">Authentication Failed</h3>
+                <p class="text-red-100 mt-1">Something went wrong during login. Please try again.</p>
+              </div>
+            </div>
+          </div>
+        <% } %>
+        
+        <h1 class="text-5xl md:text-6xl font-bold mb-4">
+          Host Your Own
+          <span class="bg-gradient-to-r from-discord-400 to-premium-400 bg-clip-text text-transparent">Music Bot</span>
+        </h1>
+        <p class="text-xl text-gray-300 mb-10">
+          Get your own Discord music bot with premium features, 24/7 uptime, and full customization.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/auth/discord" class="bg-discord-500 hover:bg-discord-600 text-white px-8 py-4 rounded-lg text-lg font-semibold flex items-center justify-center space-x-2 transition-colors border-2 border-discord-600 hover:border-discord-700">
+            <i class="fab fa-discord"></i>
+            <span>Get Started</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-gray-800 bg-opacity-70 py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-white mb-4">Why Choose MAVCODE Rhythm?</h2>
+          <p class="text-xl text-gray-300">Professional music bot hosting with enterprise features</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-gray-700 bg-opacity-80 p-6 rounded-xl border border-gray-600">
+            <i class="fas fa-clock text-discord-500 text-3xl mb-4"></i>
+            <h3 class="text-xl font-semibold text-white mb-2">24/7 Uptime</h3>
+            <p class="text-gray-300">Your bot stays online around the clock with our reliable hosting infrastructure.</p>
+          </div>
+          <div class="bg-gray-700 bg-opacity-80 p-6 rounded-xl border border-gray-600">
+            <i class="fas fa-music text-premium-500 text-3xl mb-4"></i>
+            <h3 class="text-xl font-semibold text-white mb-2">High Quality Audio</h3>
+            <p class="text-gray-300">Crystal clear music streaming with support for all major platforms.</p>
+          </div>
+          <div class="bg-gray-700 bg-opacity-80 p-6 rounded-xl border border-gray-600">
+            <i class="fas fa-cog text-green-500 text-3xl mb-4"></i>
+            <h3 class="text-xl font-semibold text-white mb-2">Full Customization</h3>
+            <p class="text-gray-300">Customize your bot's avatar, name, presence, and commands to match your server.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 bg-opacity-90 border-t border-gray-700 py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="col-span-1 md:col-span-2">
+            <div class="flex items-center space-x-3 mb-4">
+              <i class="fas fa-music text-discord-500 text-2xl"></i>
+              <span class="text-xl font-bold">MAVCODE Rhythm</span>
+            </div>
+            <p class="text-gray-400 mb-4">
+              Professional Discord music bot hosting with premium features and 24/7 support.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-discord-500 transition-colors">
+                <i class="fab fa-discord text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-blue-500 transition-colors">
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-gray-300 transition-colors">
+                <i class="fab fa-github text-xl"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div>
+            <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+              <li><a href="/dashboard/plans" class="text-gray-400 hover:text-white transition-colors">Plans</a></li>
+              <li><a href="/features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+              <li><a href="/dashboard/documentation" class="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="text-white font-semibold mb-4">Support</h4>
+            <ul class="space-y-2">
+              <li><a href="/support" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+              <li><a href="/contact" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+              <li><a href="/status" class="text-gray-400 hover:text-white transition-colors">Status</a></li>
+              <li><a href="/admin/login" class="text-gray-400 hover:text-yellow-400 transition-colors">Admin Panel</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+          <p class="text-gray-400">
+            &copy; <span id="year"></span> MAVCODE Rhythm Music Bot. Made with ❤️ by OggyTheDev.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>
