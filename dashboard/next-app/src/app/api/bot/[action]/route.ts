@@ -10,7 +10,7 @@ export async function POST(
   request: Request,
   { params }: { params: { action: string } }
 ) {
-  const session = await getIronSession(cookies(), sessionOptions);
+  const session = await getIronSession(await cookies(), sessionOptions);
   const user = session.user;
 
   if (!user) {

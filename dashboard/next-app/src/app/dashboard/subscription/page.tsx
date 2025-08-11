@@ -23,7 +23,7 @@ export default function SubscriptionPage() {
         }
         const json = await res.json();
         setSubscription(json);
-      } catch (err) {
+      } catch (err: any) {
         setError(err.message);
       } finally {
         setLoading(false);

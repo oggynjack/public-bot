@@ -49,21 +49,22 @@ export default function DashboardPage() {
     }
   }
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const res = await fetch('/api/dashboard');
-        if (!res.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        const json = await res.json();
-        setData(json);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
+  async function fetchData() {
+    try {
+      const res = await fetch('/api/dashboard');
+      if (!res.ok) {
+        throw new Error('Failed to fetch data');
       }
+      const json = await res.json();
+      setData(json);
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
+  }
+
+  useEffect(() => {
     fetchData();
   }, []);
 

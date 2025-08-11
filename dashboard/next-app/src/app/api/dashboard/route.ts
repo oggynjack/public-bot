@@ -9,7 +9,7 @@ const prisma = new PrismaClient();
 const botManager = new BotManager();
 
 export async function GET() {
-  const session = await getIronSession(cookies(), sessionOptions);
+  const session = await getIronSession(await cookies(), sessionOptions);
   const user = session.user;
 
   if (!user) {

@@ -41,7 +41,7 @@ export default function BotManagementPage() {
         }
         const json = await res.json();
         setData(json);
-      } catch (err) {
+      } catch (err: any) {
         setError(err.message);
       } finally {
         setLoading(false);
