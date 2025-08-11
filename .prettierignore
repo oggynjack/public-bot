@@ -11,3 +11,7 @@ Lavalink.jar
 npm-debug.log
 .editorconfig
 prisma/generated
+Lavalink
+dashboard/generated
+jules-scratch
+locales

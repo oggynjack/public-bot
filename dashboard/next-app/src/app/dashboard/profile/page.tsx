@@ -23,7 +23,7 @@ export default function BotProfilePage() {
         }
         const json = await res.json();
         setProfile(json);
-      } catch (err) {
+      } catch (err: any) {
         setError(err.message);
       } finally {
         setLoading(false);
@@ -46,7 +46,7 @@ export default function BotProfilePage() {
       }
       const json = await res.json();
       setSaveStatus(json.message);
-    } catch (err) {
+    } catch (err: any) {
       setSaveStatus(err.message);
     }
   }

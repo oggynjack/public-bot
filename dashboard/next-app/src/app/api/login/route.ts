@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const session = await getIronSession(cookies(), sessionOptions);
+  const session = await getIronSession(await cookies(), sessionOptions);
 
   session.user = {
     id: 'clvyrf70x0000828srp45g5b7',

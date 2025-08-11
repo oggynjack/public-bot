@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const session = await getIronSession(cookies(), sessionOptions);
+  const session = await getIronSession(await cookies(), sessionOptions);
   session.destroy();
   return NextResponse.json({ message: 'Logged out' });
 }

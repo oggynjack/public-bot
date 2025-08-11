@@ -25,7 +25,7 @@ export default function SetupPage() {
       if (json.success) {
         window.location.href = '/dashboard';
       }
-    } catch (err) {
+    } catch (err: any) {
       setStatus(err.message);
     }
   }

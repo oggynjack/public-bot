@@ -7,7 +7,7 @@ import { NextResponse } from 'next/server';
 const prisma = new PrismaClient();
 
 export async function GET() {
-  const session = await getIronSession(cookies(), sessionOptions);
+  const session = await getIronSession(await cookies(), sessionOptions);
   const user = session.user;
 
   if (!user) {
@@ -38,7 +38,7 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  const session = await getIronSession(cookies(), sessionOptions);
+  const session = await getIronSession(await cookies(), sessionOptions);
   const user = session.user;
 
   if (!user) {
